@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls  import reverse
 
 from .models import Topic
-from .forms import TopicForm
+from .forms import TopicForm, EntryForm
 
 def index(request):
     """ This view represents the Home page """
@@ -39,3 +39,22 @@ def new_topic(request):
     
     context = {'form':form}
     return render(request, 'learning_logs/new_topic.html', context)
+
+def new_entry(request, topic_id):
+    """ Adding new entry data """
+
+    topic = get_object_or_404(Topic, pk=topic_id)
+
+    if request.method != 'POST':
+        # No data submitted; create a blank form
+        form = EntryForm()
+    else:
+        # POST data submitted; process data
+        form = EntryForm(data=request.POST)
+        new_entry = form.save(commit=False)
+        new_entry.topic = topic
+        new_entry.save()
+        return HttpResponseRedirect(reverse('topic', args=[topic_id]))
+    
+    context = {'topic':topic, 'form':form}
+    return render(request, 'learning_logs/new_entry.html', context)
