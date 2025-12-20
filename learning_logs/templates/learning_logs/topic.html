@@ -25,6 +25,10 @@
                     <div>
                         {{ entry.text | linebreaks }}
                     </div>
+
+                    <div>
+                        <a href="{% url 'edit_entry' entry.id %}">Edit Entry</a>
+                    </div>
                 </li>
                 {% empty %}
                 <li>

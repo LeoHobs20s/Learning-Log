@@ -3,7 +3,7 @@
 {% block content %}
 
     <div>
-        <h2> {{ topic }} </h2>
+        <h2> <a href="{% url 'topic' topic.id %}">{{ topic }}</a></h2>
     </div>
 
     <div>
