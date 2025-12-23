@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# REDIRECT URL
+LOGIN_REDIRECT_URL = 'learning_logs/index'
 
 # Application definition
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
 
     # My apps
     'learning_logs',
+    'users',
 ]
 
 MIDDLEWARE = [
