@@ -2,10 +2,11 @@
 
 {% block content %}
 
-    <form action="{% url 'login_view' %}" method="post">
+    <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Log in</button>
+
+        <button type="submit">Register</button>
     </form>
 
 {% endblock %}
