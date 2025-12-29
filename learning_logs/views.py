@@ -26,8 +26,7 @@ def topic(request, topic_id):
 
     topic = get_object_or_404(Topic, pk=topic_id)
     entries = topic.entry_set.order_by('-date_added')
-    if topic.owner != request.user:
-        raise Http404
+    _check_topic_owner(request, topic)
     context = {'topic':topic, 'entries':entries}
     return render(request, 'learning_logs/topic.html', context)
 
@@ -57,6 +56,7 @@ def new_entry(request, topic_id):
     """ Adding new entry data """
 
     topic = get_object_or_404(Topic, pk=topic_id)
+    _check_topic_owner(request, topic)
 
     if request.method != 'POST':
         # No data submitted; create a blank form
@@ -79,10 +79,8 @@ def edit_entry(request, entry_id):
 
     entry = get_object_or_404(Entry, pk=entry_id)
     topic = entry.topic
-
-    if topic.owner != request.user:
-        raise Http404
-
+    _check_topic_owner(request, topic)
+    
     if request.method != 'POST':
         # No Data Submitted; create blank form 
         form = EntryForm(instance=entry)
@@ -94,3 +92,9 @@ def edit_entry(request, entry_id):
     
     context = {'topic':topic, 'entry':entry, 'form':form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+
+def _check_topic_owner(request, topic):
+    """ Checking if the current user is owner of topic """
+    if topic.owner != request.user:
+        raise Http404
