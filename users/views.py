@@ -53,8 +53,8 @@ def register(request):
             new_user = form.save()
             # authenticate and login user
             user = authenticate(username=new_user.username, password=request.POST['password1'])
-            login(request, user)
-            return redirect('index') # sending user to home page
+            # login(request, user)
+            return redirect('login_view') # sending user to login page
     
     context = {'form':form}
     return render(request, 'users/register.html', context)
