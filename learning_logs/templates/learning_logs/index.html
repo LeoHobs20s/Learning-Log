@@ -2,15 +2,20 @@
 
 {% block content %}
 
-    <div>
+    <div class="container bg-light p-5 mt-3 my-5">
         <h1>
-            Learning Log
+           Track your learning.
         </h1>
     </div>
 
     <div>
-        <p>Learning Log helps you keep track of your learning, for any topic you're
-    learning about</p>
+        <p>
+            <a href="{% url 'register' %}">Register an account</a> to make your own Learning Log, and list the topics you're learning about.
+        </p>
+    </div>
+
+    <div>
+        <p>Whenever your learn something new about a topic, make an entry summarizing what you've learned.</p>
     </div>
 
 {% endblock %}
