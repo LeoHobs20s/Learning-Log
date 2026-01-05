@@ -2,13 +2,13 @@
 
 {% block content %}
 
-    <div class="container display-5">
-        <a href="{% url 'topic' topic.id %}" class="text-decoration-none">{{ topic }}</a>
+    <div class="container m-2">
+        <a href="{% url 'topic' topic.id %}" class="btn btn-dark">Back</a>
     </div>
 
-    <div class="container display-6 m-0 mt-2 bg-dark text-light">
+    <div class="container display-6 m-0 mt-2">
         <p>
-            Edit Entry:
+            Edit Entry: {{ topic }}
         </p>
     </div>
 

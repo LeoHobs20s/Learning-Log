@@ -13,7 +13,7 @@ class TopicForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['class'] = 'form-control text-bg-dark'
 
 
 class EntryForm(forms.ModelForm):
@@ -23,9 +23,9 @@ class EntryForm(forms.ModelForm):
         model = Entry
         fields = ['text']
         labels = {'text':''}
-        widget = {'text':forms.Textarea(attrs={'cols':80})}
+        widget = {'text':forms.Textarea(attrs={'cols':80, 'placeholder':'Enter Text Here ...'})}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['class'] = 'form-control text-bg-dark'

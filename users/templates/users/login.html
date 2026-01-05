@@ -2,6 +2,12 @@
 
 {% block content %}
 
+    <div class="container mt-4 m-2">
+        <p class="display-5">
+            LOG IN TO ACCOUNT: 
+        </p>
+    </div>
+
     <div class="container pt-2 m-4 bg-dark rounded text-light">
         <form action="{% url 'login_view' %}" method="post">
             {% csrf_token %}

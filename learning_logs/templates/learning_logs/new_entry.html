@@ -3,18 +3,18 @@
 {% block content %}
 
     <div>
-        <h2> <a href="{% url 'topic' topic.id %}">{{ topic }}</a></h2>
+        <h2> <a href="{% url 'topic' topic.id %}"  class="btn btn-dark m-2">BACK</a></h2>
     </div>
 
     <div>
-        <p>Add New Entry: </p>
+        <p class="display-5">Add New Entry: </p>
     </div>
 
     <div class="container">
         <form action="{% url 'new_entry' topic.id %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit" class="btn btn-outline-warning" >Add entry</button>
+            <button name="submit" class="btn btn-warning" >Add entry</button>
         </form>
     </div>
 
