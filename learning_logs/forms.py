@@ -10,6 +10,12 @@ class TopicForm(forms.ModelForm):
         fields = ['text']
         labels = {'text':''}
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
+
+
 class EntryForm(forms.ModelForm):
     """ This class facilitates insertion of an entry """
 
@@ -17,4 +23,9 @@ class EntryForm(forms.ModelForm):
         model = Entry
         fields = ['text']
         labels = {'text':''}
-        widget = {'text':forms.Textarea(attrs={'cols':80})}
+        widget = {'text':forms.Textarea(attrs={'cols':80, 'class':'form-control'})}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
