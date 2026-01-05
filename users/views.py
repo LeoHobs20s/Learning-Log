@@ -44,11 +44,11 @@ def register(request):
 
     if request.method != 'POST':
         # No data submitted; create a blank form
-        form = UserCreationForm().widget.attrs['class'] = 'form-control'
+        form = UserCreationForm()
     
     else:
         # POST Data Submitted; process the user's information
-        form = UserCreationForm(data=request.POST).widget.attrs['class'] = 'form-control'
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             new_user = form.save()
             # authenticate and login user

@@ -2,26 +2,27 @@
 
 {% block content %}
 
-    <div>
-        <h2>TOPICS</h2>
+    <div class="container display-6">
+        TOPICS
     </div>
 
     <div>
-        <ul>
-            {% for topic in topics %}
-                <li>
-                    <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
-                </li>
-            {% empty %}
-                <li>
-                    No topic added at the moment.
-                </li>
-            {% endfor %}
-        </ul>
+        
+        {% for topic in topics %}
+            <div class="m-2">
+                <a href="{% url 'topic' topic.id %}" class="btn btn-outline-primary">{{ topic }}</a>
+            </div>
+        {% empty %}
+
+            <div>
+                No topics available yet.
+            </div>
+            
+        {% endfor %}
     </div>
 
     <div>
-        <a href="{% url 'new_topic' %}">Add New Topic</a>
+        <a href="{% url 'new_topic' %}" class="btn bg-dark text-light m-2">Add New Topic</a>
     </div>
 
 {% endblock %}

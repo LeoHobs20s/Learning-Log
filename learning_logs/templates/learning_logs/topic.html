@@ -1,14 +1,14 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block content %}
-    <div>
+    <div class="container display-5">
         <p>
             Topic: {{ topic }}
         </p>
     </div>
 
     <div>
-        <a href="{% url 'new_entry' topic.id %}">Add New Entry</a>
+        <a href="{% url 'new_entry' topic.id %}" class="btn btn-outline-warning">Add New Entry</a>
     </div>
 
     <div>
@@ -18,16 +18,16 @@
             <ul>
                 {% for entry in entries %}
                 <li>
-                    <div>
+                    <div class="container text-bg-dark">
                         {{ entry.date_added | date:"Y-d-M H:i" }}
                     </div>
 
-                    <div>
+                    <div class="container text-bg-warning">
                         {{ entry.text | linebreaks }}
                     </div>
 
                     <div>
-                        <a href="{% url 'edit_entry' entry.id %}">Edit Entry</a>
+                        <a href="{% url 'edit_entry' entry.id %}" class="btn btn-outline-dark m-2">Edit Entry</a>
                     </div>
                 </li>
                 {% empty %}

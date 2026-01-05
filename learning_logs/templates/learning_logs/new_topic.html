@@ -6,11 +6,11 @@
         <p>Add new topic:</p>
     </div>
 
-    <div>
+    <div class="container">
         <form action="{% url 'new_topic' %}" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit">Add Topic</button>
+            <button type="submit" class="btn btn-warning">Add Topic</button>
         </form>
     </div>
 

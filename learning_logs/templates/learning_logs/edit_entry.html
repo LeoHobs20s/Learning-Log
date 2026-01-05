@@ -2,23 +2,21 @@
 
 {% block content %}
 
-    <div>
-        <h2>
-            <a href="{% url 'topic' topic.id %}"">{{ topic }}</a>
-        </h2>
+    <div class="container display-5">
+        <a href="{% url 'topic' topic.id %}" class="text-decoration-none">{{ topic }}</a>
     </div>
 
-    <div>
+    <div class="container display-6 m-0 mt-2 bg-dark text-light">
         <p>
             Edit Entry:
         </p>
     </div>
 
-    <div>
+    <div class="container">
         <form action="{% url 'edit_entry' entry.id %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit">Save changes</button>
+            <button name="submit" class="btn btn-outline-dark">Save changes</button>
         </form>
     </div>
 

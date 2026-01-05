@@ -10,11 +10,11 @@
         <p>Add New Entry: </p>
     </div>
 
-    <div>
+    <div class="container">
         <form action="{% url 'new_entry' topic.id %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit">Add entry</button>
+            <button name="submit" class="btn btn-outline-warning" >Add entry</button>
         </form>
     </div>
 

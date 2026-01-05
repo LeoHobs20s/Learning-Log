@@ -2,10 +2,12 @@
 
 {% block content %}
 
-    <form action="{% url 'login_view' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary btn-lg">Log in</button>
-    </form>
+    <div class="container m-4">
+        <form action="{% url 'login_view' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+        </form>
+    </div>
 
 {% endblock %}

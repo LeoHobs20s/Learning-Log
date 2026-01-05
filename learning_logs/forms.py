@@ -23,7 +23,7 @@ class EntryForm(forms.ModelForm):
         model = Entry
         fields = ['text']
         labels = {'text':''}
-        widget = {'text':forms.Textarea(attrs={'cols':80, 'class':'form-control'})}
+        widget = {'text':forms.Textarea(attrs={'cols':80})}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
