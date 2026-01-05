@@ -2,11 +2,15 @@
 
 {% block content %}
 
-    <div class="container m-4">
+    <div class="container pt-2 m-4 bg-dark rounded text-light">
         <form action="{% url 'login_view' %}" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+           
+            <button type="submit" class="btn btn-warning btn-md mb-3">Log in</button>
         </form>
     </div>
 
