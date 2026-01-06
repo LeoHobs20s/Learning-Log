@@ -98,3 +98,23 @@ def _check_topic_owner(request, topic):
     """ Checking if the current user is owner of topic """
     if topic.owner != request.user:
         raise Http404
+    
+@login_required
+def delete_entry(request, entry_id):
+    """ This view will delete an entry by ID """
+
+    entry = get_object_or_404(Entry, pk=entry_id)
+    topic = entry.topic
+    _check_topic_owner(request, topic)
+    entry.delete()
+
+    return HttpResponseRedirect(reverse('topic', args=[topic.id]))
+
+@login_required
+def delete_topic(request, topic_id):
+    """ This view will delete a topic by ID """
+
+    topic = get_object_or_404(Topic, pk=topic_id)
+    _check_topic_owner(request, topic)
+    topic.delete()
+    return HttpResponseRedirect(reverse('topics'))

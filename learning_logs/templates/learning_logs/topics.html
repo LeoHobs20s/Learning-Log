@@ -1,28 +1,30 @@
 {% extends 'learning_logs/base.html' %}
 
+{% block page_title %} Topics {% endblock %}
+
 {% block content %}
 
     <div class="container display-6">
         TOPICS
     </div>
 
-    <div>
+    <div class="container d-flex">
         
         {% for topic in topics %}
             <div class="m-2">
-                <a href="{% url 'topic' topic.id %}" class="btn btn-outline-primary">{{ topic }}</a>
+                <a href="{% url 'topic' topic.id %}" class="btn btn-primary">{{ topic }}</a>
             </div>
         {% empty %}
 
-            <div>
+            <div class="container w-50 text-bg-light">
                 No topics available yet.
             </div>
             
         {% endfor %}
     </div>
 
-    <div>
-        <a href="{% url 'new_topic' %}" class="btn bg-dark text-light m-2">Add New Topic</a>
+    <div class="container mt-3">
+        <a href="{% url 'new_topic' %}" class="btn bg-dark text-light mr-0 mt-3">Add New Topic</a>
     </div>
 
 {% endblock %}

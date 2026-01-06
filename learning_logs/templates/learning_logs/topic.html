@@ -1,5 +1,7 @@
 {% extends 'learning_logs/base.html' %}
 
+{% block page_title %} Topic {% endblock %}
+
 {% block content %}
     <div class="container display-5">
         <p>
@@ -9,6 +11,7 @@
 
     <div>
         <a href="{% url 'new_entry' topic.id %}" class="btn btn-dark m-1">Add New Entry</a>
+        <a href="{% url 'delete_topic' topic.id %}" class="btn btn-danger">Delete Topic</a>
     </div>
 
     <div>
@@ -25,10 +28,11 @@
             <div class="container text-bg-light rounded-bottom">
                 {{ entry.text | linebreaks }}
                 <a href="{% url 'edit_entry' entry.id %}" class="btn btn-dark mb-3">Edit Entry</a>
+                <a href="{% url 'delete_entry' entry.id %}" class="btn btn-danger mb-3">Delete Entry</a>
             </div>
                     
         {% empty %}
-            <div>No Entries added yet.</div>
+            <div class="container text-bg-light">No Entries added yet.</div>
         {% endfor %}
 
                 
