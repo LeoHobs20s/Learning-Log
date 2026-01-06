@@ -1,2 +1,2 @@
 # Learning-Log
-This program is used to write about the concepts you've learned or anything that picks your brain.
+This web application is used for tracking your learning and to allow you to see how much information have you covered for the topic.
