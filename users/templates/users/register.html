@@ -1,13 +1,36 @@
 {% extends 'learning_logs/base.html' %}
 
+{% block page_title %} Registration {% endblock %}
+
 {% block content %}
 
-    <div class="container m-2">
+    <div class="container mx-auto w-50 mt-4">
+        <p class="display-5">
+            REGISTER AN ACCOUNT:
+        </p>
+        
+    </div>
+
+    <div class="container w-50 pt-2 mt-4 mx-auto text-bg-dark rounded">
         <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
 
-            <button type="submit" class="btn btn-warning btn-lg">Register</button>
+                {{ field.label_tag }}
+                {{ field }}
+
+                {% if field.errors %}
+                    <p>
+                        {% for error in field.errors %}
+                            {{ error }}
+
+                        {% endfor %}
+                    </p>
+                {% endif %}  
+                
+            {% endfor %}
+
+            <button type="submit" class="btn btn-warning btn-lg mt-4 mb-4">Register</button>
         </form>
     </div>
 

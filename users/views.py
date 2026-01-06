@@ -1,9 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
 
-from .forms import LoginForm
+
+from .forms import LoginForm, RegistrationForm
 
 
 def login_view(request):
@@ -44,11 +44,11 @@ def register(request):
 
     if request.method != 'POST':
         # No data submitted; create a blank form
-        form = UserCreationForm()
+        form = RegistrationForm()
     
     else:
         # POST Data Submitted; process the user's information
-        form = UserCreationForm(data=request.POST)
+        form = RegistrationForm(data=request.POST)
         if form.is_valid():
             new_user = form.save()
             # authenticate and login user
