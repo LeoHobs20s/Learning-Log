@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-0ly^h#i1$8_$hy7m8uds!*_95*=mxj1ldz*$6%1j(k83cx=bz7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'learning-log-production.up.railway.app'
+]
 
 # REDIRECT URL
 LOGIN_REDIRECT_URL = 'learning_logs/index'
