@@ -37,6 +37,14 @@ ALLOWED_HOSTS = [
 # REDIRECT URL
 LOGIN_REDIRECT_URL = 'learning_logs/index'
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://learning-log-production.up.railway.app",
+]
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 # Application definition
 
 INSTALLED_APPS = [
