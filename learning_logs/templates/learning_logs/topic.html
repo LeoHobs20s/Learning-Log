@@ -25,7 +25,7 @@
                 {{ entry.date_added | date:"Y-d-M H:i" }}
             </div>
 
-            <div class="container text-bg-light rounded-bottom">
+            <div class="container text-bg-light rounded-bottom mb-3">
                 {{ entry.text | linebreaks }}
                 <a href="{% url 'edit_entry' entry.id %}" class="btn btn-dark mb-3">Edit Entry</a>
                 <a href="{% url 'delete_entry' entry.id %}" class="btn btn-danger mb-3">Delete Entry</a>
